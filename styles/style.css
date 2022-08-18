@@ -1,0 +1,100 @@
+@charset "UTF-8";
+body {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: linear-gradient(0deg, hsl(240deg, 73%, 65%), hsl(273deg, 75%, 66%));
+  background-color: hsl(273deg, 75%, 66%);
+  font-family: "Kumbh Sans", sans-serif;
+  font-size: 12px;
+  min-height: 100vh;
+}
+
+main {
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.card {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  background-color: #fff;
+  height: auto;
+  width: 70vh;
+}
+
+.accordion {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  overflow: hidden;
+  height: auto;
+  width: 100%;
+}
+.accordion input {
+  position: absolute;
+  opacity: 0;
+  z-index: -1;
+}
+.accordion .faq {
+  overflow: hidden;
+  width: 100%;
+  border-bottom: 1px solid hsl(240deg, 5%, 91%);
+}
+.accordion .faq-qus {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  padding: 1em;
+  transition: 0.5s ease;
+}
+.accordion .faq-qus:hover {
+  color: hsl(14deg, 88%, 65%);
+}
+.accordion .faq-qus::after {
+  content: "❯";
+  color: hsl(14deg, 88%, 65%);
+  height: 1em;
+  font-weight: bold;
+  width: 1em;
+  text-align: center;
+  transition: all 0.35s ease-in-out;
+}
+.accordion .faq-ans {
+  background-color: #fff;
+  max-height: 0;
+  padding: 0 1em;
+  transition: all 0.35s ease-in-out;
+}
+
+input:checked + .faq-qus {
+  font-weight: 700;
+}
+input:checked + .faq-qus::after {
+  transform: rotate(90deg);
+}
+input:checked ~ .faq-ans {
+  max-height: 100%;
+  padding: 1em;
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+
+.attribution a {
+  color: hsl(228deg, 45%, 44%);
+}/*# sourceMappingURL=style.css.map */

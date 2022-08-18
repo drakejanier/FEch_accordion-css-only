@@ -1,0 +1,120 @@
+//COLORS
+//--primary
+$d-blue: hsl(238, 29%, 16%);
+$l-red: hsl(14, 88%, 65%);
+
+$d-slate: hsl(237, 12%, 33%);
+$slate: hsl(240, 6%, 50%);
+
+//--divider
+$l-slate: hsl(240, 5%, 91%);
+
+//--gradient
+$gr-base: hsl(273, 75%, 66%);
+$gr-purp: linear-gradient(0deg, hsl(240, 73%, 65%), hsl(273, 75%, 66%));
+
+//FONT
+$f-fam: 'Kumbh Sans', sans-serif;
+$f-size: 12px;
+$f-bold: 700;
+$f-reg: 400;
+
+@mixin flexbox($fl-align, $fl-justify, $fl-direction) {
+    box-sizing: border-box;
+    display: flex;
+    align-items: $fl-align;
+    justify-content: $fl-justify;
+    flex-direction: $fl-direction;
+}
+@mixin maxarea {
+    height: 100%;
+    width: 100%
+}
+body{
+    @include flexbox(center, center, column);
+    
+    background: $gr-purp;
+    background-color: $gr-base;
+    font-family: $f-fam;
+    font-size: $f-size;
+    min-height: 100vh;
+}
+main{
+    @include maxarea();
+    @include flexbox(center, center, row);    
+}
+.card{
+    @include flexbox(center, center, row);
+    background-color: #fff;
+    height: auto;
+    width: 70vh;
+}
+
+.accordion{
+    @include flexbox(center, center, column);
+
+    overflow: hidden;
+    height: auto;
+    width: 100%;
+    input {
+        position: absolute;
+        opacity: 0;
+        z-index: -1;
+    }
+
+    .faq{
+        overflow: hidden;        
+        width: 100%;
+        border-bottom: 1px solid $l-slate;
+
+        &-qus{
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            padding: 1em;
+            transition: .5s ease;
+            
+            &:hover{
+                color: $l-red;
+            }
+            &::after{
+                content: "\276f";
+                color: $l-red;
+                height: 1em;
+                font-weight: bold;
+                width: 1em;
+                text-align: center;
+                transition: all .35s ease-in-out;
+            }
+        }
+
+        &-ans{
+            background-color: #fff;
+            max-height: 0;
+            padding: 0 1em;
+            transition: all .35s ease-in-out;
+        }        
+    }
+}
+//clicked
+input:checked{
+    + .faq-qus {
+        font-weight: $f-bold;
+        &::after{
+            transform: rotate(90deg);
+        }
+    }
+    ~ .faq-ans{
+        max-height: 100%;
+        padding: 1em;
+    }
+}
+
+.attribution {
+    font-size: 11px;
+    text-align: center;
+}
+
+.attribution a {
+    color: hsl(228, 45%, 44%);
+}
