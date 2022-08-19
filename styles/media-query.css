@@ -7,18 +7,19 @@
   main {
     box-sizing: border-box;
     padding: 15rem 2rem 2rem;
+    height: auto !important;
     align-items: flex-start;
     width: 100%;
   }
   .card {
+    background: url("../images/bg-pattern-mobile.svg");
+    background-repeat: no-repeat;
+    background-size: auto 35%;
+    background-position: center -1rem;
     box-sizing: border-box;
     max-width: 50rem;
   }
   .sec-1 {
-    background: url("../images/bg-pattern-mobile.svg");
-    background-repeat: no-repeat;
-    background-size: 80%;
-    background-position: -250 bottom;
     justify-content: center;
     align-items: center;
     padding: 1rem;
@@ -28,7 +29,6 @@
     display: inline-block;
     margin-top: -15rem;
     height: 22rem;
-    width: 80%;
   }
   .mobile-hide {
     display: none;
