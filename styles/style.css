@@ -104,7 +104,6 @@ main {
 }
 .accordion .faq-ans {
   color: hsl(240deg, 6%, 50%);
-  background-color: #fff;
   max-height: 0;
   padding: 0 1em;
   transition: all 0.35s ease-in-out;
