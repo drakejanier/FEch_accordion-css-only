@@ -1,6 +1,11 @@
 @import url(style.scss);
 @media only screen and (max-width: 820px) {
+  body {
+    height: 100vh;
+    width: 100vh;
+  }
   main {
+    box-sizing: border-box;
     padding: 15rem 2rem 2rem;
     align-items: flex-start;
     width: 100%;
@@ -36,8 +41,8 @@
 }
 @media only screen and (min-width: 821px) {
   main {
-    align-items: center !important;
-    min-height: 100vh;
+    align-items: center;
+    min-height: 100%;
   }
   .mobile-show {
     display: none;
@@ -51,11 +56,12 @@
     background: url("../images/bg-pattern-desktop.svg");
     background-repeat: no-repeat;
     background-size: auto 170%;
-    background-position: -36rem 70%;
-    height: 100%;
+    background-position: -225% 70%;
+    height: auto;
   }
   .sec-1 {
     align-items: center;
+    height: auto;
     overflow: hidden;
   }
   .sec-1::before {

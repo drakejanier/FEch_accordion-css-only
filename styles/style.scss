@@ -3,11 +3,11 @@
 
 //COLORS
 //--primary
-$d-blue: hsl(238, 29%, 16%);//title:checked, 
+$d-blue: hsl(238, 29%, 16%); //title:checked, 
 $l-red: hsl(14, 88%, 65%);
 
 $d-slate: hsl(237, 12%, 33%); //title:def
-$slate: hsl(240, 6%, 50%);//answer
+$slate: hsl(240, 6%, 50%); //answer
 
 //--divider
 $l-slate: hsl(240, 5%, 91%);
@@ -17,7 +17,8 @@ $gr-base: hsl(273, 75%, 66%);
 $gr-purp: linear-gradient(0deg, hsl(240, 73%, 65%), hsl(273, 75%, 66%));
 
 //FONT
-$f-fam: 'Kumbh Sans', sans-serif;
+$f-fam: 'Kumbh Sans',
+sans-serif;
 $f-size: 12px;
 $f-bold: 700;
 $f-reg: 400;
@@ -29,58 +30,74 @@ $f-reg: 400;
     justify-content: $fl-justify;
     flex-direction: $fl-direction;
 }
+
 @mixin maxarea {
     height: 100%;
     width: 100%;
 }
-html{
+
+html {
+    // width: 100vw;
+    // height: 100vh;
     font-family: $f-fam;
     font-size: $f-size;
 }
-body{    
+
+body {
+    background: $gr-purp;
+    // background-color: $gr-base;   
+    // background: $d-slate; 
+    background-size:100%;
+    background-repeat: no-repeat;
+    box-sizing: border-box;
     display: flex;
     justify-content: center;
-    background: $gr-purp;
-    background-color: $gr-base;
-    min-height: 100vh;
+    flex-direction: column;    
+    gap: 3rem;
+    min-height: 100vh !important;
     margin: 0;
     padding: 0;
+    width: 100vw;
 }
-main{
-    @include maxarea();   
-    
+
+main {
+    @include maxarea();
+
     display: flex;
     justify-content: center;
 }
-.card{
+
+.card {
     @include flexbox(center, center, row);
     background-color: #fff;
     border-radius: 2.5rem;
-    box-shadow: 0 3rem 3rem -1rem   rgba($color: #000000, $alpha: 0.3);
+    box-shadow: 0 3rem 3rem -1rem rgba($color: #000000, $alpha: 0.3);
     flex-wrap: wrap;
-    width: auto;
-}
-.sec-1{
-    display: flex;    
-    flex-grow: 1;
-    flex-wrap: wrap;
-    min-height: 100%;
     width: auto;
 }
 
-.sec-2{
-    display: flex;   
+.sec-1 {
+    display: flex;
+    flex-grow: 1;
+    flex-wrap: wrap;
+    //min-height: 100%;
+    width: auto;
+}
+
+.sec-2 {
+    display: flex;
     flex-direction: column;
     flex-grow: 3;
     width: auto;
 
-    h1{
+    h1 {
         font-size: 2.667;
         text-align: left;
-        margin: 0 1rem 1rem 1rem; 
+        margin: 0 1rem 1rem 1rem;
     }
 }
-.accordion{
+
+.accordion {
     @include flexbox(center, center, column);
 
     overflow: hidden;
@@ -88,18 +105,19 @@ main{
     max-width: 29.75rem;
     min-width: 25rem;
     width: auto;
+
     input {
         position: absolute;
         opacity: 0;
         z-index: -1;
     }
 
-    .faq{
-        overflow: hidden;        
+    .faq {
+        overflow: hidden;
         width: 100%;
         border-bottom: 1px solid $l-slate;
 
-        &-qus{
+        &-qus {
             color: $d-slate;
             cursor: pointer;
             display: flex;
@@ -107,15 +125,16 @@ main{
             justify-content: space-between;
             padding: 1rem;
             transition: .5s ease;
-            
-            &:hover{
+
+            &:hover {
                 color: $l-red;
             }
-            &::after{
+
+            &::after {
                 content: url('../images/icon-arrow-down.svg');
                 color: $l-red;
                 height: 1rem;
-                font-weight: bold;    
+                font-weight: bold;
                 text-align: center;
                 transform: rotate(0deg);
                 transition: all .35s ease-in-out;
@@ -123,37 +142,46 @@ main{
             }
         }
 
-        &-ans{
+        &-ans {
             color: $slate;
             background-color: #fff;
             max-height: 0;
             padding: 0 1em;
             transition: all .35s ease-in-out;
-        }         
+        }
     }
 }
+
 //clicked
-input:checked{
-    + .faq-qus {
+input:checked {
+    +.faq-qus {
         color: $d-blue;
         font-weight: $f-bold;
-        &::after{
+
+        &::after {
             margin-top: 0.8rem;
             transform: rotate(180deg);
         }
     }
-    ~ .faq-ans{
+
+    ~.faq-ans {
         max-height: 100%;
         padding: 0 1em 1em 1em;
     }
 }
 
 .attribution {
+    color: #fff;
     font-size: 11px;
     text-align: center;
+    //display: none;
 }
 
 .attribution a {
-    color: hsl(228, 45%, 44%);
+    color: #fff;
+    transition: 0.3s ease;
+    &:hover{
+        font-weight: bold;
+    }
 }
 

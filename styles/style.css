@@ -5,13 +5,18 @@ html {
 }
 
 body {
+  background: linear-gradient(0deg, hsl(240deg, 73%, 65%), hsl(273deg, 75%, 66%));
+  background-size: 100%;
+  background-repeat: no-repeat;
+  box-sizing: border-box;
   display: flex;
   justify-content: center;
-  background: linear-gradient(0deg, hsl(240deg, 73%, 65%), hsl(273deg, 75%, 66%));
-  background-color: hsl(273deg, 75%, 66%);
-  min-height: 100vh;
+  flex-direction: column;
+  gap: 3rem;
+  min-height: 100vh !important;
   margin: 0;
   padding: 0;
+  width: 100vw;
 }
 
 main {
@@ -38,7 +43,6 @@ main {
   display: flex;
   flex-grow: 1;
   flex-wrap: wrap;
-  min-height: 100%;
   width: auto;
 }
 
@@ -120,10 +124,15 @@ input:checked ~ .faq-ans {
 }
 
 .attribution {
+  color: #fff;
   font-size: 11px;
   text-align: center;
 }
 
 .attribution a {
-  color: hsl(228deg, 45%, 44%);
+  color: #fff;
+  transition: 0.3s ease;
+}
+.attribution a:hover {
+  font-weight: bold;
 }/*# sourceMappingURL=style.css.map */
