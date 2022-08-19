@@ -1,10 +1,13 @@
+@import url('media-query.css');
+
+
 //COLORS
 //--primary
-$d-blue: hsl(238, 29%, 16%);
+$d-blue: hsl(238, 29%, 16%);//title:checked, 
 $l-red: hsl(14, 88%, 65%);
 
-$d-slate: hsl(237, 12%, 33%);
-$slate: hsl(240, 6%, 50%);
+$d-slate: hsl(237, 12%, 33%); //title:def
+$slate: hsl(240, 6%, 50%);//answer
 
 //--divider
 $l-slate: hsl(240, 5%, 91%);
@@ -28,34 +31,63 @@ $f-reg: 400;
 }
 @mixin maxarea {
     height: 100%;
-    width: 100%
+    width: 100%;
 }
-body{
-    @include flexbox(center, center, column);
-    
-    background: $gr-purp;
-    background-color: $gr-base;
+html{
     font-family: $f-fam;
     font-size: $f-size;
+}
+body{    
+    display: flex;
+    justify-content: center;
+    background: $gr-purp;
+    background-color: $gr-base;
     min-height: 100vh;
+    margin: 0;
+    padding: 0;
 }
 main{
-    @include maxarea();
-    @include flexbox(center, center, row);    
+    @include maxarea();   
+    
+    display: flex;
+    justify-content: center;
 }
 .card{
     @include flexbox(center, center, row);
     background-color: #fff;
-    height: auto;
-    width: 70vh;
+    border-radius: 2.5rem;
+    box-shadow: 0 3rem 3rem -1rem   rgba($color: #000000, $alpha: 0.3);
+    flex-wrap: wrap;
+    width: auto;
+}
+.sec-1{
+    display: flex;    
+    flex-grow: 1;
+    flex-wrap: wrap;
+    min-height: 100%;
+    width: auto;
 }
 
+.sec-2{
+    display: flex;   
+    flex-direction: column;
+    flex-grow: 3;
+    width: auto;
+
+    h1{
+        font-size: 2.667;
+        text-align: left;
+        margin: 0 1rem 1rem 1rem; 
+    }
+}
 .accordion{
     @include flexbox(center, center, column);
 
     overflow: hidden;
     height: auto;
-    width: 100%;
+    max-width: 29.75rem;
+    min-width: 25rem;
+    width: auto;
     input {
         position: absolute;
         opacity: 0;
@@ -68,45 +100,51 @@ main{
         border-bottom: 1px solid $l-slate;
 
         &-qus{
+            color: $d-slate;
             cursor: pointer;
             display: flex;
+            font-size: 1.17rem;
             justify-content: space-between;
-            padding: 1em;
+            padding: 1rem;
             transition: .5s ease;
             
             &:hover{
                 color: $l-red;
             }
             &::after{
-                content: "\276f";
+                content: url('../images/icon-arrow-down.svg');
                 color: $l-red;
-                height: 1em;
-                font-weight: bold;
-                width: 1em;
+                height: 1rem;
+                font-weight: bold;    
                 text-align: center;
+                transform: rotate(0deg);
                 transition: all .35s ease-in-out;
+                width: 1rem;
             }
         }
 
         &-ans{
+            color: $slate;
             background-color: #fff;
             max-height: 0;
             padding: 0 1em;
             transition: all .35s ease-in-out;
-        }        
+        }         
     }
 }
 //clicked
 input:checked{
     + .faq-qus {
+        color: $d-blue;
         font-weight: $f-bold;
         &::after{
-            transform: rotate(90deg);
+            margin-top: 0.8rem;
+            transform: rotate(180deg);
         }
     }
     ~ .faq-ans{
         max-height: 100%;
-        padding: 1em;
+        padding: 0 1em 1em 1em;
     }
 }
 
@@ -118,3 +156,4 @@ input:checked{
 .attribution a {
     color: hsl(228, 45%, 44%);
 }
+
