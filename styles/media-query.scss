@@ -21,7 +21,7 @@
         background: url('../images/bg-pattern-mobile.svg');
         background-repeat: no-repeat;
         background-size: 80%;
-        background-position: center bottom;
+        background-position: -250 bottom;
         justify-content: center;
         align-items: center;
         padding: 1rem;
@@ -67,8 +67,8 @@
         max-height: 50rem;
         background: url('../images/bg-pattern-desktop.svg');
         background-repeat: no-repeat;
-        background-size: auto 170%;
-        background-position: -225% 70%;
+        background-size: 80% auto;
+        background-position: -195% 70%;
         height: auto;
     }
 
